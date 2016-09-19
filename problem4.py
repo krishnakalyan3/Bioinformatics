@@ -1,3 +1,5 @@
+from os.path import dirname
+
 RNA_TABLE = {
     'UUU': 'F',     'CUU': 'L',     'AUU': 'I',     'GUU': 'V',
     'UUC': 'F',     'CUC': 'L',     'AUC': 'I',     'GUC': 'V',
@@ -39,7 +41,7 @@ if __name__ == '__main__':
     test = rna(small_data) % 1000000
     assert test == 12
 
-    dataset = open("/Users/krishna/MIRI/BSG/data/rosalind_mrna.txt").read()
+    dataset = open(dirname(__file__) + "/data/rosalind_mrna.txt").read()
     largetest = rna(dataset) % 1000000
     print largetest
 
