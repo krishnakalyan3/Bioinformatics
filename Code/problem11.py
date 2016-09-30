@@ -29,7 +29,7 @@ def kmer(data,n):
 
 if __name__ == '__main__':
   	#dataset = open("/Users/krishna/MIRI/BSG/data/sample2.txt").read()
-    	dataset = open("/Users/krishna/Downloads/rosalind_kmer.txt").read()
+    dataset = open("/Users/krishna/Downloads/rosalind_kmer.txt").read()
     
    	clean_data = get_index(dataset,4)
    	kmer_dict = kmer(clean_data,4)
