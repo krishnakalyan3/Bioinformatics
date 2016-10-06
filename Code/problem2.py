@@ -1,17 +1,16 @@
 import re
 from protein import *
+import protein 
 
-with open('/Users/krishna/MIRI/BSG/data/d1.txt', 'r') as myfile:
-    data = myfile.read().replace('\n', '')
+def code_protein(sequence):
+	protein = []
+	for i in xrange(0,len(sequence),3):
+		if len(sequence[i:i+3]) > 2:
+			protein.append(RNA_TABLE[sequence[i:i+3]])
+	
+	return ''.join(protein)
 
-def codeprotein(sequence):
-	splitstr = re.findall('...',sequence)
-	mRNA = ''
-	for i in splitstr:
-		mRNA = mRNA + proteindata[i]
-	return mRNA
-
-with open('/Users/krishna/MIRI/BSG/soln/p2.txt', 'a') as myfile:
-    output = codeprotein(data)
-    print output 
-    myfile.write(output)
+if __name__ == '__main__':
+	data = 'AUGCUACUGGACGGACG'
+	print data
+	print code_protein(data)
