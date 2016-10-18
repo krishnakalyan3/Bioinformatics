@@ -1,11 +1,29 @@
 #!/usr/bin/env python2
 # Counting Point Mutations
-import Levenshtein as l
 
-def edit_distance(x,y):
-	return (l.editops(x, y))
+from numpy import zeros
+import fasta as fs
+
+def edit_distance(n1,n2):
+	M = zeros((len(n1)+1,len(n2)+1), dtype=int)
+	for i in range(1,len(n1)+1):
+		M[i][0]= i
+	for i in range(1,len(n2)+1):
+		M[0][i]= i
+	for i in xrange(1,len(n1)+1):
+		for j in xrange(1,len(n2)+1):
+			if n1[i-1] == n2[j-1]:
+				M[i][j] = M[i-1][j-1]
+			else:
+				M[i][j] = min(M[i-1][j]+1,M[i][j-1]+1, M[i-1][j-1]+1)
+
+	return M[len(n1)][len(n2)]
 
 
 if __name__ == '__main__':
-	dataset = open("/Users/krishna/Downloads/rosalind_edit.txt").read().split('\n')
-	print edit_distance(dataset[1], dataset[3])
+	dataset = open("/Users/krishna/Downloads/rosalind_edit.txt").read().split('>')
+	dataset_parse = fs.parse_fasta(dataset)
+	print edit_distance(dataset_parse[0][1], dataset_parse[1][1])
+	#print edit_distance('PLEASANTLY','MEANLY')
+
+	
