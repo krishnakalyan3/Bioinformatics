@@ -16,14 +16,13 @@ def edit_distance(n1,n2):
 				M[i][j] = M[i-1][j-1]
 			else:
 				M[i][j] = min(M[i-1][j]+1,M[i][j-1]+1, M[i-1][j-1]+1)
-
-	return M[len(n1)][len(n2)]
+	return M
 
 
 if __name__ == '__main__':
 	dataset = open("/Users/krishna/Downloads/rosalind_edit.txt").read().split('>')
 	dataset_parse = fs.parse_fasta(dataset)
-	print edit_distance(dataset_parse[0][1], dataset_parse[1][1])
+	edm = edit_distance(dataset_parse[0][1], dataset_parse[1][1])
+	print edm[len(dataset_parse[0][1])][len(dataset_parse[1][1])]
 	#print edit_distance('PLEASANTLY','MEANLY')
 
-	
