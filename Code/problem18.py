@@ -23,6 +23,7 @@ if __name__ == '__main__':
 	dataset = open("/Users/krishna/Downloads/rosalind_edit.txt").read().split('>')
 	dataset_parse = fs.parse_fasta(dataset)
 	edm = edit_distance(dataset_parse[0][1], dataset_parse[1][1])
-	print edm[len(dataset_parse[0][1])][len(dataset_parse[1][1])]
-	#print edit_distance('PLEASANTLY','MEANLY')
+	#print edm
+	#print edm[len(dataset_parse[0][1])][len(dataset_parse[1][1])]
+	print edit_distance('PLEASANTLY','MEANLY')
 
