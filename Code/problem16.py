@@ -1,4 +1,4 @@
-c#!/usr/bin/env python2
+#!/usr/bin/env python2
 # Finding a Protein Motif
 import urllib
 import re
