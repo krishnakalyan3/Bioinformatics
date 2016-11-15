@@ -13,7 +13,9 @@ HWExact(x,pvaluetype="selome",verbose=TRUE)
 
 ct = c(CC=0,CT=7,TT=93)
 
+
 HWChisq(ct)
+?HWChisq
 # p-value =  0.2784841
 HWExact(ct,pvaluetype="selome",verbose=TRUE)
 # p =  1
